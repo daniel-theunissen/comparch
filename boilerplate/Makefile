@@ -1,6 +1,6 @@
-PROJECT = blinky
-SOURCES = src/blinky.v
-TOP_MODULE = blinky
+PROJECT = top
+SOURCES = src/top.v
+TOP_MODULE = top
 ICEBREAKER_DEVICE = up5k
 ICEBREAKER_PIN_DEF = iceBlinkPico.pcf
 ICEBREAKER_PACKAGE = sg48
@@ -27,7 +27,7 @@ prog: $(PROJECT).bin #for sram
 test_$(PROJECT):
 	rm -rf sim_build/
 	mkdir sim_build/
-	iverilog -o sim_build/sim.vvp -s $(TOP_MODULE) -s dump -g2012 $(TOP_MODULE).v test/dump_$(TOP_MODULE).v clock_div.v
+	iverilog -o sim_build/sim.vvp -s $(TOP_MODULE) -s dump -g2012 src/$(TOP_MODULE).v test/dump_$(TOP_MODULE).v
 	PYTHONOPTIMIZE=${NOASSERT} MODULE=test.test_$(TOP_MODULE) vvp -M $$(cocotb-config --prefix)/cocotb/libs -m libcocotbvpi_icarus sim_build/sim.vvp
 	! grep failure results.xml
 show_%: %.vcd %.gtkw
@@ -38,4 +38,4 @@ lint:
 	verible-verilog-lint *v --rules_config verible.rules
 
 clean:
-	rm -rf *vcd *log *bin test/__pycache__ sim_build *.history
+	rm -rf *vcd *log *bin test/__pycache__ sim_build *.history *.xml

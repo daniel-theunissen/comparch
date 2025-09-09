@@ -38,4 +38,4 @@ lint:
 	verible-verilog-lint *v --rules_config verible.rules
 
 clean:
-	rm -rf *vcd *log *bin test/__pycache__ sim_build *.history
+	rm -rf *vcd *log *bin test/__pycache__ sim_build *.history *.xml
