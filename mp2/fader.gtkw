@@ -1,0 +1,28 @@
+[*]
+[*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
+[*] Wed Sep 24 03:40:06 2025
+[*]
+[dumpfile] "/home/dt/Documents/comparch/comparch/mp2/fader.vcd"
+[dumpfile_mtime] "Wed Sep 24 03:39:28 2025"
+[dumpfile_size] 52233891
+[savefile] "/home/dt/Documents/comparch/comparch/mp2/fader.gtkw"
+[timestart] 0
+[size] 1920 1033
+[pos] -1 -1
+*-24.000000 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 276
+[signals_width] 158
+[sst_expanded] 1
+[sst_vpaned_height] 276
+@28
+fader.state[1:0]
+fader.next_state[1:0]
+@8022
+fader.pwm_signal[10:0]
+@20001
+-
+@20000
+-
+-
+[pattern_trace] 1
+[pattern_trace] 0
