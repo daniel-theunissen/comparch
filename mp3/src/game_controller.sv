@@ -67,7 +67,7 @@ reg [2:0] i = 0;
 reg [2:0] j = 0;
 
 assign write_en = (state == WRITING);
-assign next_channel_data = (game_state[j][i]) ? 8'b11111111 : 8'b00000000;
+assign next_channel_data = (game_state[j][i]) ? 8'b00001111 : 8'b00000000;
 
 always_ff @(posedge clk) begin
   if ((state == LOADING) || (state == WRITING)) begin

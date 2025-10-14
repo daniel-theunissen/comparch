@@ -8,43 +8,80 @@ module top (
   input  clk,
   output wire _48b,
   output wire LED
-  // output wire [7:0] mem [64],
-  // output wire next_game_step_calculated
 );
 
 wire start_next_game_step;
 wire next_game_step_calculated;
 wire [5:0] address;
-wire [7:0] channel_data;
-wire [7:0] next_channel_data;
 wire write_en;
 
-// always @(posedge clk) begin
-//   if (next_game_step_calculated)
-//     start_next_game_step <= 1;
-//   else
-//     start_next_game_step <= 0;
-// end
+wire [7:0] channel_data_g;
+wire [7:0] next_channel_data_g;
 
 memory #(
-  .INIT_FILE("test.txt")
-) memory (
+  .INIT_FILE("test_g.txt")
+) memory_g (
   .clk(clk),
   .write_en(write_en),
   .address(address),
-  .data_in(next_channel_data),
-  .data_out(channel_data)
-  //.mem(mem)
+  .data_in(next_channel_data_g),
+  .data_out(channel_data_g)
 );
 
-game_controller game_controller(
+game_controller game_controller_g (
   .clk(clk),
   .start(start_next_game_step),
-  .channel_data(channel_data),
-  .next_channel_data(next_channel_data),
+  .channel_data(channel_data_g),
+  .next_channel_data(next_channel_data_g),
   .memory_updated(next_game_step_calculated),
   .write_en(write_en),
   .memory_address(game_address)
+);
+
+wire [7:0] channel_data_r;
+wire [7:0] next_channel_data_r;
+
+memory #(
+  .INIT_FILE("test_r.txt")
+) memory_r (
+  .clk(clk),
+  .write_en(write_en),
+  .address(address),
+  .data_in(next_channel_data_r),
+  .data_out(channel_data_r)
+);
+
+game_controller game_controller_r (
+  .clk(clk),
+  .start(start_next_game_step),
+  .channel_data(channel_data_r),
+  .next_channel_data(next_channel_data_r),
+  .memory_updated(),
+  .write_en(),
+  .memory_address()
+);
+
+wire [7:0] channel_data_b;
+wire [7:0] next_channel_data_b;
+
+memory #(
+  .INIT_FILE("test_b.txt")
+) memory_b (
+  .clk(clk),
+  .write_en(write_en),
+  .address(address),
+  .data_in(next_channel_data_b),
+  .data_out(channel_data_b)
+);
+
+game_controller game_controller_b (
+  .clk(clk),
+  .start(start_next_game_step),
+  .channel_data(channel_data_b),
+  .next_channel_data(next_channel_data_b),
+  .memory_updated(),
+  .write_en(),
+  .memory_address()
 );
 
 wire [5:0] game_address;
@@ -80,7 +117,7 @@ ws2812b LED_matrix (
 
 always_ff @(posedge clk) begin
   if (load_sreg) begin
-    shift_reg <= {channel_data, 16'd0};
+    shift_reg <= {channel_data_g, channel_data_r, channel_data_b};
   end else if (shift) begin
     shift_reg <= {shift_reg[22:0], 1'b0};
   end
