@@ -1,0 +1,22 @@
+[*]
+[*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
+[*] Fri Oct 10 03:06:15 2025
+[*]
+[dumpfile] "/home/dt/Documents/comparch/comparch/mp3/top.vcd"
+[dumpfile_mtime] "Fri Oct 10 03:04:12 2025"
+[dumpfile_size] 3503886
+[savefile] "/home/dt/Documents/comparch/comparch/mp3/top.gtkw"
+[timestart] 0
+[size] 1920 1033
+[pos] -1 -1
+*-21.000000 10000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[sst_width] 276
+[signals_width] 303
+[sst_expanded] 1
+[sst_vpaned_height] 247
+@28
+top.i[2:0]
+top.update_game
+[pattern_trace] 1
+[pattern_trace] 0
