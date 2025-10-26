@@ -19,7 +19,7 @@ module display_controller (
     localparam [2:0] TRANSMIT_PIXEL = 3'b100;
 
     localparam [8:0] TRANSMIT_CYCLES    = 9'd360;       // = 24 bits / pixel x 15 cycles / bit
-    localparam [23:0] IDLE_CYCLES       = 24'd12000000;   // = 1s per frame
+    localparam [23:0] IDLE_CYCLES       = 24'd1500000;   // = 0.125s per frame
 
     logic [1:0] state = TRANSMIT_FRAME;
     logic [1:0] next_state;

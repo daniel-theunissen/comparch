@@ -87,7 +87,20 @@ always_ff @(posedge clk) begin
   end
 end
 
-reg [7:0] game_state [64];
+reg [7:0] game_state [8];
+
+// Generate output frame files
+// int file_counter = 0;
+
+// always @(posedge clk) begin
+//   if (writing_done && (next_state == DONE)) begin
+//     string filename;
+//     filename = $sformatf("output/frame_%0d.txt", file_counter);
+//     $writememb(filename, game_state);
+//     file_counter++;
+//   end
+// end
+
 wire [7:0] game_state_bus;
 assign game_state_bus = game_state[game_address];
 wire [7:0] next_game_state_bus;
