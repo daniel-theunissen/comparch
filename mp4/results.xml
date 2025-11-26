@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1764115401" />
+    <testcase name="test_top" classname="test.test_top" file="/home/dt/Documents/comparch/comparch/mp4/test/test_top.py" lineno="14" time="0.002800464630126953" sim_time_ns="2082.51" ratio_time="743630.1739349567" />
+  </testsuite>
+</testsuites>
