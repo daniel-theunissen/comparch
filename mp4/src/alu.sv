@@ -24,7 +24,8 @@ module alu(
       4'b0111: aluRes = {31'b0, {(aluIn1 < aluIn2)}};
       4'b1000: aluRes = aluIn1 << aluIn2[4:0];
       4'b1001: aluRes = aluIn1 >> aluIn2[4:0];
-      4'b1010: aluRes = aluIn1 >>> aluIn2[4:0];
+      4'b1010: aluRes = $signed(aluIn1) >>> aluIn2[4:0];
+      default: aluRes = 32'b0;
     endcase
   end
 

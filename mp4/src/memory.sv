@@ -229,7 +229,7 @@ module memory #(
 
     // Register funct3 and two lsbs of dmem address to preserve data out even 
     // if funct3 and the dmem address change in the middle of the clock cycle.
-    always_ff @(posedge clk) begin
+    always_ff @(negedge clk) begin
         dmem_address1 <= dmem_address[1];
         dmem_address0 <= dmem_address[0];
         dmem_word <= funct3[1];
