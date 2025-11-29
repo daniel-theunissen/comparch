@@ -132,7 +132,9 @@ always_comb begin
         ALUOp = 2'b10;
       end
       LUI: begin
-        ResultSrc = 2'b11;
+        ALUSrcA = 2'b10;
+        ALUSrcB = 2'b01;
+        ResultSrc = 2'b10;
         RegWrite = 1'b1;
       end
       AUIPC: begin
